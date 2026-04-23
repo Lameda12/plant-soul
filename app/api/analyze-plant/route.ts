@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { rateLimit } from "@/lib/rate-limit";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Force dynamic so Next.js never pre-renders this route during build
+export const dynamic = "force-dynamic";
 
 const SYSTEM_PROMPT = `You are PlantSoul, an expert botanist with a playful personality who analyzes plant health from photos.
 
@@ -58,6 +59,9 @@ export async function POST(req: NextRequest) {
   if (!process.env.OPENAI_API_KEY) {
     return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 });
   }
+
+  // Instantiate here so the module loads cleanly during build (no key needed at import time)
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   try {
     const response = await openai.chat.completions.create({
