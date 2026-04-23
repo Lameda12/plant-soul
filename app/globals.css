@@ -4,84 +4,123 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ── PlantSoul brand tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --ps-black:         #050505;
+  --ps-forest:        #0a2e1a;
+  --ps-forest-light:  #122b1c;
+  --ps-forest-mid:    #0f2318;
+  --ps-card:          #0d1a10;
+  --ps-border:        #1a3a23;
+  --ps-border-bright: #2d6640;
+  --ps-leaf:          #4ade80;
+  --ps-leaf-dim:      #22c55e;
+  --ps-leaf-faint:    #16a34a;
+  --ps-text:          #e8f5ec;
+  --ps-text-sub:      #a3c4ab;
+  --ps-muted:         #6b8f73;
+  --ps-dim:           #3d5c44;
+
+  /* shadcn semantic tokens — mapped to brand */
+  --background:             var(--ps-black);
+  --foreground:             var(--ps-text);
+  --card:                   var(--ps-card);
+  --card-foreground:        var(--ps-text);
+  --popover:                var(--ps-card);
+  --popover-foreground:     var(--ps-text);
+  --primary:                var(--ps-leaf);
+  --primary-foreground:     var(--ps-black);
+  --secondary:              var(--ps-forest);
+  --secondary-foreground:   var(--ps-text);
+  --muted:                  var(--ps-forest-light);
+  --muted-foreground:       var(--ps-muted);
+  --accent:                 var(--ps-leaf-faint);
+  --accent-foreground:      var(--ps-text);
+  --destructive:            #dc2626;
+  --border:                 var(--ps-border);
+  --input:                  var(--ps-forest);
+  --ring:                   var(--ps-leaf);
+  --radius:                 0.625rem;
+
+  /* Sidebar */
+  --sidebar:                var(--ps-forest-mid);
+  --sidebar-foreground:     var(--ps-text);
+  --sidebar-primary:        var(--ps-leaf);
+  --sidebar-primary-foreground: var(--ps-black);
+  --sidebar-accent:         var(--ps-forest);
+  --sidebar-accent-foreground: var(--ps-text-sub);
+  --sidebar-border:         var(--ps-border);
+  --sidebar-ring:           var(--ps-leaf);
+
+  /* Charts */
+  --chart-1: var(--ps-leaf);
+  --chart-2: var(--ps-leaf-dim);
+  --chart-3: var(--ps-leaf-faint);
+  --chart-4: #15803d;
+  --chart-5: #166534;
+}
+
+/* ── Tailwind v4 theme extension ────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
+  /* Map shadcn vars → Tailwind color utilities */
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-destructive:            var(--destructive);
+  --color-border:                 var(--border);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+  --color-chart-1:                var(--chart-1);
+  --color-chart-2:                var(--chart-2);
+  --color-chart-3:                var(--chart-3);
+  --color-chart-4:                var(--chart-4);
+  --color-chart-5:                var(--chart-5);
+  --color-sidebar:                var(--sidebar);
+  --color-sidebar-foreground:     var(--sidebar-foreground);
+  --color-sidebar-primary:        var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --color-sidebar-accent:         var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:         var(--sidebar-border);
+  --color-sidebar-ring:           var(--sidebar-ring);
+
+  /* Brand utilities — bg-ps-leaf, text-ps-forest, etc. */
+  --color-ps-black:         var(--ps-black);
+  --color-ps-forest:        var(--ps-forest);
+  --color-ps-forest-light:  var(--ps-forest-light);
+  --color-ps-card:          var(--ps-card);
+  --color-ps-border:        var(--ps-border);
+  --color-ps-leaf:          var(--ps-leaf);
+  --color-ps-leaf-dim:      var(--ps-leaf-dim);
+  --color-ps-text:          var(--ps-text);
+  --color-ps-text-sub:      var(--ps-text-sub);
+  --color-ps-muted:         var(--ps-muted);
+
+  /* Fonts */
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono:    var(--font-geist-mono), monospace;
+
+  /* Radius scale */
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-}
-
-/* PlantSoul — dark, sleek: deep greens on near-black */
-:root {
-  --background: oklch(0.1 0.015 145);      /* near-black with green tint */
-  --foreground: oklch(0.92 0.02 145);      /* soft white-green */
-  --card: oklch(0.14 0.018 145);
-  --card-foreground: oklch(0.92 0.02 145);
-  --popover: oklch(0.14 0.018 145);
-  --popover-foreground: oklch(0.92 0.02 145);
-  --primary: oklch(0.55 0.16 145);         /* deep forest green */
-  --primary-foreground: oklch(0.97 0.01 145);
-  --secondary: oklch(0.18 0.025 145);
-  --secondary-foreground: oklch(0.85 0.03 145);
-  --muted: oklch(0.18 0.02 145);
-  --muted-foreground: oklch(0.58 0.05 145);
-  --accent: oklch(0.45 0.13 150);          /* muted teal-green accent */
-  --accent-foreground: oklch(0.97 0.01 145);
-  --destructive: oklch(0.6 0.22 25);
-  --border: oklch(0.25 0.03 145);
-  --input: oklch(0.2 0.025 145);
-  --ring: oklch(0.55 0.16 145);
-  --chart-1: oklch(0.55 0.16 145);
-  --chart-2: oklch(0.45 0.13 150);
-  --chart-3: oklch(0.65 0.12 130);
-  --chart-4: oklch(0.38 0.1 160);
-  --chart-5: oklch(0.72 0.1 120);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.12 0.016 145);
-  --sidebar-foreground: oklch(0.92 0.02 145);
-  --sidebar-primary: oklch(0.55 0.16 145);
-  --sidebar-primary-foreground: oklch(0.97 0.01 145);
-  --sidebar-accent: oklch(0.18 0.025 145);
-  --sidebar-accent-foreground: oklch(0.85 0.03 145);
-  --sidebar-border: oklch(0.22 0.028 145);
-  --sidebar-ring: oklch(0.55 0.16 145);
 }
 
 @layer base {
@@ -90,8 +129,119 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
   }
-  html {
-    @apply font-sans;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
+}
+
+/* ── PlantSoul Demo Animations ──────────────────────────────────────────────── */
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes float-leaf {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+@keyframes scan-line {
+  0%   { top: 0%;   opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes trait-pop {
+  0%  { opacity: 0; transform: scale(0.5) translateY(6px); }
+  70% { transform: scale(1.08); }
+  100%{ opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes counter-glow {
+  0%, 100% { text-shadow: 0 0 16px rgba(74,222,128,0.5); }
+  50%       { text-shadow: 0 0 32px rgba(74,222,128,0.9); }
+}
+
+@keyframes hero-reveal {
+  from { opacity: 0; letter-spacing: 0.4em; }
+  to   { opacity: 1; letter-spacing: normal; }
+}
+
+@keyframes particle-float {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(-100px) translateX(24px) rotate(180deg); opacity: 0; }
+}
+
+@keyframes logo-pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(74,222,128,0.4)); }
+  50%       { filter: drop-shadow(0 0 16px rgba(74,222,128,0.8)); }
+}
+
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes holo-shift {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* ── Utility classes ─────────────────────────────────────────────────────────── */
+
+.demo-shimmer {
+  background: linear-gradient(90deg, #0d1a10 25%, #122b1c 50%, #0d1a10 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.plant-card-float   { animation: card-float 4s ease-in-out infinite; }
+.fade-up            { animation: fade-up 0.5s ease both; }
+.logo-pulse         { animation: logo-pulse 3s ease-in-out infinite; }
+
+.typing-cursor::after {
+  content: '|';
+  animation: typing-cursor 0.8s ease-in-out infinite;
+  color: #4ade80;
+  margin-left: 1px;
+}
+
+.score-arc { transition: stroke-dasharray 0.05s linear; }
+
+.font-heading { font-family: var(--font-heading); }
+.font-sans    { font-family: var(--font-sans); }
+
+/* Brand gradient helpers */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #0a2e1a, #050505);
+}
+.text-leaf-gradient {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
