@@ -4,7 +4,7 @@
 
 PlantSoul is an AI-powered botanical analysis app that discovers the personality, emotional state, and hidden story inside any plant — from a single photo.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=nextdotjs) ![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff69b4?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript)
+[![Deploy](https://img.shields.io/badge/Live-plant--soul.vercel.app-4ade80?style=flat-square&logo=vercel&logoColor=black)](https://plant-soul.vercel.app) ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=nextdotjs) ![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff69b4?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript)
 
 ---
 
